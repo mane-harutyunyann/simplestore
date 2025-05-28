@@ -1,0 +1,16 @@
+[
+  {
+    "username": "Bob",
+    "password": "$2b$10$xFs9a0yufV9E7P4K/KVYveILuMj6NnbQADfXgY2dwqhb62bspsysK",
+    "email": "me@gmail.com",
+    "role": "user",
+    "id": 0
+  },
+  {
+    "username": "Mane",
+    "password": "$2b$10$jbm3gZFdiUIkas7GZlT4mudnvTwFByZBK5GXURH7TUNUYOeGT9RHW",
+    "email": "mdde@gmail.com",
+    "role": "user",
+    "id": 1
+  }
+]

@@ -2,22 +2,38 @@
 const fs = require('fs')
 const path = require('path')
 
-const writeData = (filename, data) => {
-    const filePath = path.join(__dirname, filename);
-    fs.writeFile(filePath, JSON.stringify(data, null, 2), (err) => {
+const writeData = (filename, request, callback) => {
+    readData(filename, (err, data) => {
         if (err) {
-            throw err;
+            return callback(err);
         }
+
+        let arr = data || [];
+        arr.push(request)
+        const filePath = path.join(__dirname, '..', filename);
+        fs.writeFile(filePath, JSON.stringify(arr, null, 2), (err) => {
+            if (err) {
+                return callback(err);
+            }
+        })
     })
 }
 
-const readData = (filename) => {
-    const filePath = path.join(__dirname, filename);
+const readData = (filename, callback) => {
+    const filePath = path.join(__dirname,'..', filename);
     fs.readFile(filePath, 'utf-8', (err, data) => {
         if (err) {
-            throw err;
+            return callback(err);
         }
-        return JSON.parse(data)
+        if(!data){
+            return callback(null, []);
+        }
+        try {
+            const json = JSON.parse(data);
+            callback(null, json);
+          } catch (parseErr) {
+            callback(parseErr);
+          }
     })
 }
 
