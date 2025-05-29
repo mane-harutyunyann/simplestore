@@ -7,4 +7,13 @@ const validateUserData = (data) => {
     }
 
 }
-module.exports = { validateUserData }
+
+const validateEmail = (email) => {
+    const regExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
+    if(!regExp.test(email)){
+        throw new Error('Invalid email.')
+    }
+}
+
+module.exports = { validateUserData, validateEmail }
