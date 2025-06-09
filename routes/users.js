@@ -28,13 +28,4 @@ router.get('/:id', (req,res) => {
     })
 });
 
-router.delete('/:id', (req,res) => {
-    const userId = Number(req.params.id)
-
-})
-
-router.put('/:id', (req,res) => {
-    const userId = Number(req.params.id)
-})
-
 module.exports = router

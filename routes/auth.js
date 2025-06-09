@@ -21,9 +21,6 @@ router.post('/register', (req, res) => {
             if(err){
                 return res.status(500).send("Failed to read user data.");
             }
-            if (users.some(u => u.username === req.body.username)){
-                return res.status(404).send('Already exists user with specified username.')
-            }
             if (!req.body.email && users.some(u => u.email === req.body.email)){
                 return res.status(404).send('Already exists user with specified email.')
             }
